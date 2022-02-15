@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Currency Form</title>
+    <link href ="css/styles.css" type="text/css" rel="stylesheet">
+
+</head>
+<body>
+    <h1>My (Second)Currency Form</h1>
+
+    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> " method="post">
+  <fieldset>
+  <legend>Currency Form:</legend>
+    <label>Name</label>
+    <input type="text" name="name" value="<?php if(isset($_POST['name'])) echo htmlspecialchars($_POST['name']) ; ?>">
+
+
+    <label>email</label>
+    <input type="email" name="email" value="<?php if(isset($_POST['email'])) echo htmlspecialchars($_POST['email']) ; ?>">
+
+    <label>Amount</label>
+    <input type="number" name="amount" value="<?php if(isset($_POST['amount'])) echo htmlspecialchars($_POST['amount']) ; ?>">
+    <!--canadian = .80;
+     rubles = .013;
+     pounds = 1.37;
+     euros = 1.14;
+     yen = .0087; -->
+<br>
+<lable>Currency</label>
+    <ul>
+    <li>
+    <input type ="radio" name="currency" value="0.013" <?php if(isset($_POST['currency']) && $_POST['currency'] == 0.013) echo 'checked="checked" ';?> >Rubles
+    </li>
+
+    <li>
+    <input type ="radio" name="currency" value="0.80" <?php if(isset($_POST['currency']) && $_POST['currency'] == 0.80) echo 'checked="checked" ';?> >Canadian
+    </li>
+
+    <li>
+    <input type ="radio" name="currency" value="1.37" <?php if(isset($_POST['currency']) && $_POST['currency'] == 1.37) echo 'checked="checked" ';?> >Pounds
+    </li>
+
+    <li>
+    <input type ="radio" name="currency" value="1.14" <?php if(isset($_POST['currency']) && $_POST['currency'] == 1.14) echo 'checked="checked" ';?> >Euros
+    </li>
+
+    <li>
+    <input type ="radio" name="currency" value="1.14" <?php if(isset($_POST['currency']) && $_POST['currency'] == .0087) echo 'checked="checked" ';?> >Yen
+
+    <li>
+    <input type ="radio" name="currency" value="1.14" <?php if(isset($_POST['currency']) && $_POST['currency'] == 4.580) echo 'checked="checked" ';?> >Venezuelan Bolívar
+    </li>
+
+
+    <li>
+    <input type ="radio" name="currency" value="1.14" <?php if(isset($_POST['currency']) && $_POST['currency'] == 0.000250429) echo 'checked="checked" ';?> >Malagasy Ariary
+    </li>
+
+    
+</ul>
+<select name = "bank">
+<option value = "" NULL <?php if(isset($_POST['bank']) &&  $_POST['bank'] == NULL) echo 'Selected = "unselected" ';?>>Select One"</option>
+
+<option value="wamu" <?php if (isset ($_POST['boa']) && $_POST['bank'] == 'boa') echo 'selected = "unelected" ' ;?>>WAMU</option>
+
+   <option value="metro" <?php if (isset ($_POST['wells']) && $_POST['bank'] == 'wells') echo 'selected = "unelected" ' ;?>>Metro Bank of Seattle</option>
+
+   <option value="bos" <?php if (isset ($_POST['bos']) && $_POST['bank'] == 'bos') echo 'selected = "unelected" ' ;?>>Bank of Seattle</option>
+
+
+</select>
+<input type ="submit" value="Convert IT">
+</fieldset>
+</form>
+ <button><a href="">Reset</a></button>
+
+<?php
+if($_SERVER['REQUEST_METHOD']=='POST'){
+
+  if(empty($_POST['name'])){
+    echo 'Please fill out your name';
+  }
+  echo '<br>';
+
+  if(empty($_POST['email'])){
+    echo 'Please fill out your email';
+  }
+  echo '<br>';
+
+  if(empty($_POST['amount'])){
+    echo 'Please fill out your amount A zero value will not work';
+  }
+
+ echo '<br>';
+
+if(empty($_POST['currency'])){
+    echo 'Please fill out your Currency';
+  }
+
+
+ echo '<br>';
+ 
+ if($_POST['bank'] == NULL) {
+    echo ' Please choose your bank.';}
+
+    if(isset($_POST['name'],
+    $_POST['email'],
+    $_POST['amount'],
+    $_POST['currency'],
+    $_POST['bank']
+    )){
+
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $amount = $_POST['amount'];
+        $currency = $_POST['currency'];
+        $bank = $_POST['bank'];
+
+        $total = $amount * $currency;
+
+        if(!empty($name && $email && $amount && $currency && $bank)){
+ echo '
+ <div class="box">
+    <h3> Hello <b>' .$name .'</b></h3>
+    <p> We have confirmed your email and will be sending you the following information <b>' .$email .'</b></p>
+    <p> You have deposited ' .$amount .'in foreign currency</p>
+    <p> And, this will equal to '.$total .' in US dollars</p>
+    <p> You will recive a statment from ' .$bank .' reflecting this deposite</p>  
+    </div>';
+
+        }//end empty
+
+    
+   
+}//end isset
+}//close server
+  ?>
+
+</body>
+</html>
