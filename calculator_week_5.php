@@ -42,8 +42,8 @@
         </li>
     </ul>
 
-    <select name = "Miles Per Gallon">
-<option value = "" NULL <?php if(isset($_POST['bank']) &&  $_POST['bank'] == NULL) echo 'Selected = "unselected" ';?>>Select MPG</option>
+    <select name = "mpg">
+<option value = "" NULL <?php if(isset($_POST['mpg']) &&  $_POST['mpg'] == NULL) echo 'Selected = "unselected" ';?>>Select MPG</option>
 
 <option value="10" <?php if (isset ($_POST['10']) && $_POST['mpg'] == '10') echo 'selected = "unelected" ' ;?>>10</option>
 
@@ -59,28 +59,84 @@
 
  <?php
 
- $name = $_POST['name'];
+
+if($_SERVER['REQUEST_METHOD']=='POST'){
+
+  if(empty($_POST['name'])){
+    echo '<span class="error">Please fill out your name</span>';
+  }
+  echo '<br>';
+
+  if(empty($_POST['total_number'])){
+    echo '<span class="error">Please add your miles</span>';
+  }
+  echo '<br>';
+
+  if(empty($_POST['fast'])){
+    echo '<span class="error">Please fill in your speed</span>';
+  }
+  echo '<br>';
+
+  if(empty($_POST['hours'])){
+    echo '<span class="error">Please fill in your hours</span>';
+  }
+  echo '<br>';
+
+  if(empty($_POST['gas'])){
+    echo '<span class="error">Please add the gas price</span>';
+  }
+ echo '<br>';
+
+   if($_POST['mpg'] == NULL) {
+    echo '<span class="error">Please add your mpg';}
+
+   if(isset($_POST['name'],
+    $_POST['total_number'],
+    $_POST['fast'],
+    $_POST['hours'],
+    $_POST['gas'],
+    $_POST['mpg']
+    )){
+
+  
+        $name = $_POST['name'];
         $total_number =$_POST['total_number'];
         $fast = 'fast';
         $hours = 'hours';
-        $gas = 'gas';
-        $mpg = 'mpg';
+        $gas = $_POST['gas'];
+        $mpg = $_POST['mpg'];
        
         
-        $gas_cost = 12 / 5 /** $gas*/;
-        echo $gas_cost;
+        $gas_cost = ($total_number / $mpg) * $gas;
+        $time=  $total_number/ (int)$fast ;
+        $gallons_used =  $total_number / $mpg;
+        $days = $time/(int)$hours;
         
-        /*$name = $_POST['name'];
-        $total_number = $_POST['total_number'];
-        $fast = $_POST['fast'];
-        $hours = $_POST['hours'];
+        /*$name;
+        $total_number = total number of miles driven;
+        $fast = How Fast Do You Typically Drive
+        $hours = How Many Hours Per Day Do You Plan On Driving;
         $gas = $_POST['gas'];
         $mpg = $_POST['mpg'];
         
         $gas_cost= ($total_number/$mpg) * $gas;
         echo $gas_cost;*/
-        echo $name;
-        echo $_POST['total_number'];
+     
+     if(!empty($name && $total_number && $fast && $hours && $gas && $mpg)){
+       
+        echo '<div class="box"><p> Hello, <b>'.$name. '</b> Here is the infromation about the trip: </p>';
+        echo '<br>';
+        echo 'Driving time ='.$time;
+        echo '<br>';
+        echo 'Cost of gas= $' .$gas_cost;
+        echo '<br>';
+        echo 'Gallons of gas used= ' .$gallons_used;
+        echo '<br>';
+        echo 'Days Driving = ' .$days.'
+</div>';
+   }
+   }
+  }//close server
 
 ?>
 </body>
