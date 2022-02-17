@@ -1,0 +1,90 @@
+*{
+    psdding: 0;
+    margin:0;
+    box-sizing: border-box;
+  }
+  
+  body{
+    background: lightgoldenrodyellow;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 100%;
+  }
+  form{
+    width: 400px;
+    margin: 20px auto;
+  }
+  
+  h1, h2{
+    text-align: center;
+    margin-top: 20px;
+  }
+  fieldset{
+    border-color: teal;
+    border-style: solid;
+    padding: 20px;
+  }
+  label{
+   display: block;
+   margin-bottom: 5px;
+   font-size: 1.1em;
+  }
+  input{
+   margin-bottom: 10px
+  }
+  select{
+   margin-bottom: 10px
+  }
+  
+  form li{
+    line-height: .8;
+    margin-bottom: 10px;
+    list-style-type: none;
+    
+  }
+  
+  label + ul{
+    margin: 5px 0 10px 15px;
+  }
+  
+  input[type=radio]{
+    margin-right:3px;
+    height: auto;
+    width:auto;
+  }
+  input{
+    height: 30px;
+    weidth: 100%
+  
+  }
+  input[type=submit]{
+    height: auto;
+    width: auto;
+  
+  }
+  
+  select {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  button{
+    padding: 6px;
+    background:tomato;
+    margin: 20px auto;
+  display: block;
+  }
+  
+  button a{
+    color:whitesmoke;
+    font-size: 1.2em;
+    text-decoration: none;
+  }
+  
+  .box{
+    width: 400px;
+    margin: 10px auto;
+    text-align:center;
+  }
+  .box h3{
+    color:aliceblue;
+  }
