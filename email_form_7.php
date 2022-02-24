@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             } //if empty
             else
             {
-                $email = $_POST['name'];
+                $name = $_POST['name'];
             }
 
        
@@ -40,11 +40,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
              if (empty($_POST['color']))
             {
-                $gender_err = 'Please select a color';
+                $color_err = 'Please select a color';
             } //if empty
             else
             {
-                $gender = $_POST['color'];
+                $color = $_POST['color'];
             }
 
   if(empty($_POST['phone'])) { // if empty, type in your number
@@ -66,7 +66,7 @@ $phone = $_POST['phone'];
             } //if empty
             else
             {
-                $email = $_POST['vines'];
+                $vines = $_POST['vines'];
             }
 
         //honey
@@ -77,7 +77,7 @@ $phone = $_POST['phone'];
             } //if empty
             else
             {
-                $email = $_POST['comments'];
+                $comments = $_POST['comments'];
             }
 
 
@@ -87,7 +87,7 @@ $phone = $_POST['phone'];
             } //if empty
             else
             {
-                $email = $_POST['privacy'];
+                $privacy = $_POST['privacy'];
             }
 
        
@@ -125,19 +125,19 @@ email: '.$email.'  '.PHP_EOL.'
 Gender: '.$color.'  '.PHP_EOL.'
 Phone: '.$phone.'  '.PHP_EOL.'
 Regions: '.$ship.'  '.PHP_EOL.'
-Wines: '.my_vines($vines).'  '.PHP_EOL.'
+Vines: '.my_vines($vines).'  '.PHP_EOL.'
 Comments: '.$comments.'  '.PHP_EOL.'
 ';
 
-if(!empty($first_name &&
-          $email &&
-          $color &&
-          $vines &&
-          $ship &&
-          $comments &&
-          $privacy &&
-          $phone) &&
-          preg_match('/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/', $_POST['phone'])) {
+if(!empty($first_name) &&
+!empty($email) &&
+!empty($color) &&
+!empty($vines) &&
+!empty($ship) &&
+!empty($comments) &&
+!empty($privacy) &&
+!empty($phone) &&
+preg_match('/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/', $_POST['phone']) ){
 
             $headers = array(
               'From' => 'nopeply@journee@gmail.com',
@@ -234,7 +234,7 @@ if(!empty($first_name &&
           <span class="error"><?=$vines_err ?></span>
 
           <label>Ship From:</label>
-          <select name ="regions">
+          <select name ="ship">
 
            <option value="" NULL <?php if(isset($_POST['ship']) && $_POST['ship'] == NULL) echo 'selected = "unselected" ';?>>Select One  <option>
 
@@ -242,9 +242,9 @@ if(!empty($first_name &&
 
          <option value="canada"  <?php if(isset($_POST['ship']) && $_POST['ship'] == 'canada') echo 'selected = "selected" ';?>>Canada  <option>
 
-         <option value="westeros"  <?php if(isset($_POST['ship']) && $_POST['regions'] == 'westeros') echo 'selected = "selected" ';?>>Westeros  <option>
+         <option value="westeros"  <?php if(isset($_POST['ship']) && $_POST['ship'] == 'westeros') echo 'selected = "selected" ';?>>Westeros  <option>
 
-         <option value="caledonia"  <?php if(isset($_POST['ship']) && $_POST['regions'] == 'caledonia') echo 'selected = "selected" ';?>>Caledonia  <option>
+         <option value="caledonia"  <?php if(isset($_POST['ship']) && $_POST['ship'] == 'caledonia') echo 'selected = "selected" ';?>>Caledonia  <option>
 
          </select>
          <span class="error"><?=$ship_err ?></span>
