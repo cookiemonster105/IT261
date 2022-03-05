@@ -1,0 +1,60 @@
+/*Styles for the people pages*/
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+
+body{
+    background: antiquewhite;
+}
+
+#wrapper{
+    max-width: 1200px;
+    margin: 20px auto;
+    width: 61%;
+}
+
+main{
+    float:left;
+    
+}
+
+aside{
+    float:right;
+    width: 36%;
+    background: gold;
+    text-align: center;
+
+}
+
+aside img{
+    display: block;
+    margin:0 auto 10px auto;
+}
+footer{
+    clar:both;
+    height: 60px;
+    line-height:60px;
+
+}
+
+footer li{
+    list-style-type: none;
+    float: left;
+    margin-right: 30px;
+}
+.inner{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+main ul{
+    margin-left:20px;
+    margin-bottom: 10px;
+}
+
+h2{
+    font-size: 2em;
+}
