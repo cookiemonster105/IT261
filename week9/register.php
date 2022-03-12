@@ -3,6 +3,7 @@ include('server.php');
 //include('./include/header.php');
 
 ?>
+<div id="wrapper">
 
 <h1>Register Today</h1>
 
@@ -31,6 +32,15 @@ include('server.php');
 
 <button type="button" onclick="window.location.href='<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ; ?>' ">Reset</button>
 
+<?php include('errors.php');?>
+
 </fieldset>
 
 </form>
+<p> Already have an account? <a href="login.php">Please login</a></p>
+
+</div> <!-- close wrapper -->
+
+include ('./includes/footer.php'); ?>
+
+

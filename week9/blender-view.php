@@ -39,7 +39,7 @@ include('./includes/header.php');
 
 <main>
     <h1>Welcome to our Blender View Page</h1>
-    <h2> Welcome to <?= $company ?> <?= $blender_name ?>'s Page</h2>
+    <h2> Welcome to <?= $company ?> <?= $blender_name ?> Page</h2>
 
     <ul>
         <?php
