@@ -1,0 +1,41 @@
+#wrapper{
+    background-color: #36599a;
+    
+  }
+  
+  h1{
+    color: #f8f8f8;
+    text-align: center;
+  }
+  
+  fieldset{
+    background-color: #f6eed2;
+    width: 500px;
+    margin: 0 auto
+  }
+  
+  input {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: block;
+    border: 1px solid #f8323c;
+    border-radius: 4px;
+    box-sizing: border-box;
+    
+  }
+  
+  h3, a {
+     background-color: #f8323c;
+    color: blanchedalmond;
+    text-align: center;
+  }
+  
+  footer{
+    background-color: f6eed2;
+  }
+  img{
+      display: block;
+      max-width: 75%;
+  }
+  
