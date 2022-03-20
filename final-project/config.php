@@ -97,16 +97,18 @@ switch ($today)
     break;
 
     case 'Saturday':
-        $day_title = '';
+        $day_title = 'Gave Interviews on the Toilet';
 
         $day = 'Saturday';
 
-        $day_photo = '<img src="images/.jpg" alt="">';
+        $day_photo = '<img src="images/lbj.webp" alt="">';
 
-        $alt_tag = '';
+        $alt_tag = 'Lyndon B. Johnson';
 
-        $day_text = '<p> </p>';
-        ;
+        $day_text = '<p> Lyndon B. Johnson was one of our most brazenly unapologetic presidents. He did things his own way and did not care what you thought about it. <br>
+
+        One of his odd habits was to give interviews from the bathroom while going to the bathroom. Presidential biographer Doris Kearns Goodwin describes how "he just did not want the conversation to stop. If you were in the bedroom holding back when he went into the bathroom, he would just call you in and say, come on in, I have not finished what I am saying.';
+        
 
     break;
 
@@ -120,7 +122,7 @@ switch ($today)
         $alt_tag = '';
 
         $day_text = '<p> </p>';
-        ;
+        
 
     break;
 }// end switch
@@ -131,16 +133,19 @@ switch ($today)
  // Switch for title, body class et al.
 
  switch(THIS_PAGE){
+
     case 'index.php':
-    $title ='Our Home Page';
-    $body = 'home';
-    $headline ='Welcome to our Home Page';
+    $title ='Presidency of the USA';
+    $body = '<p>The president of the United States is the head of state and head of government of the United States, indirectly elected to a four-year term by the American people through the Electoral College. The office holder leads the executive branch of the federal government and is the commander-in-chief of the United States Armed Forces.</p>
+
+    <p>Since the office was established in 1789, 45 people have served in 46 presidencies. The first president, George Washington, won a unanimous vote of the Electoral College; one, Grover Cleveland, served two non-consecutive terms and is therefore counted as the 22nd and 24th president of the United States, giving rise to the discrepancy between the number of presidents and the number of persons who have served as president. </p>';
+    $headline ='Presidency of the United States of America';
     break;
 
     case 'about.php':
-        $title ='Our About Page';
+        $title ='Presidency About Page';
         $body ='about inner';
-        $headline ='Welcome to our About Page';
+        $headline ='Welcome to the Presidency of the USA About Page';
     break;
 
     case 'daily.php':
@@ -192,14 +197,14 @@ switch ($today)
         $my_return ='';
     foreach($nav as $key => $value) {
                 if (THIS_PAGE == $key) {
-                $my_return . ='<li><a class="current" href"'.$key .'"> '.$value. '</a></li>';
+                $my_return . '<li><a class="current" href"'.$key .'"> '.$value. '</a></li>';
                 
         // echo '<li> <a class="current"  href="' .$key.'"> ' .$value.'</a> </li>';
     }else{
         // echo '<li> <a href="' .$key.'"> ' .$value.'</a> </li>';
-        $my_return. = '<li><a href="' .$key.'"> '.$value.'</a></li>';
+        $my_return. '<li><a href="' .$key.'"> '.$value.'</a></li>';
     }
-    };  //end foreach
+    }  //end foreach
     return $my_return;
 }
     
