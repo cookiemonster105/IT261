@@ -155,9 +155,10 @@ switch ($today)
     break;
 
     case 'contact.php':
-        $title ='Our contact Page';
-        $body ='contact inner';
-        $headline ='Welcome to our contact Page';
+        $title ='Contact';
+        $body ='<br>
+        <h3>Enter for your chance to win a a four year stay at the white house along with the presidency of the USA</h3>';
+        $headline ='<h1>You could WIN a four year stay at the White House!</h1>';
     break;
 
 
@@ -208,7 +209,138 @@ switch ($today)
     }  //end foreach
     return $my_return;
 }
+
+// wayne's contact form in his final project
+// this is placed in the config file
+
+
+$first_name ='';
+$last_name='';
+$email='';
+$party='';
+$phone='';
+$comments ='';
+$privacy ='';
+$first_name_err ='';
+$last_name_err = '';
+$email_err = '';
+$party_err = '';
+$phone_err = '';
+$comments_err ='';
+$privacy_err ='';
+if ($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+            if (empty($_POST['first_name']))
+        {
+            $first_name_err = 'Please fill out your first name';
+        } //if empty
+        else
+        {
+            $first_name = $_POST['first_name'];
+            
+        }
+
+    if (empty($_POST['last_name']))
+    {
+        $last_name_err = 'Please fill out your last name';
+    } //if empty
+    else
+    {
+        $last_name = $_POST['last_name'];
+    }
+
+        if (empty($_POST['email']))
+        {
+            $email_err = 'Please fill out your email';
+        } //if empty
+        else
+        {
+            $email = $_POST['email'];
+        }
+
+            if (empty($_POST['party']))
+        {
+            $party_err = 'Please add your party';
+        } //if empty
+        else
+        {
+            $party = $_POST['party'];
+        }
+
     
+            if (empty($_POST['phone']))
+        {
+            $phone_err = 'Please add your phone number';
+        } //if empty
+        else
+        {
+            $phone = $_POST['phone'];
+        }
+
+    
+    if (empty($_POST['comments']))
+        {
+            $comments_err = 'Your comments please';
+        } //if empty
+        else
+        {
+            $comments = $_POST['comments'];
+        }
+
+
+    if (empty($_POST['privacy']))
+        {
+            $privacy_err = 'Please check';
+        } //if empty
+        else
+        {
+            $privacy = $_POST['privacy'];
+        }
+
+if(isset($_POST['first_name'],
+        $_POST['last_name'],
+                    $_POST['email'],
+                    $_POST['party'],
+//                    $_POST['regions'],
+                    $_POST['phone'],
+                    $_POST['comments'],
+                    $_POST['privacy'] )) {
+
+$to = 'journee@gmail.com'; /*szemeo@mystudentswa.com';*/
+$subject = 'test email'.date('m/d/y, h i A');
+$body = '
+First Name: '.$first_name.'  '.PHP_EOL.'
+Last Name: '.$last_name.'  '.PHP_EOL.'
+email: '.$email.'  '.PHP_EOL.'
+Party: '.$party.'  '.PHP_EOL.'
+Phone: '.$phone.'  '.PHP_EOL.'
+Comments: '.$comments.'  '.PHP_EOL.'
+';
+
+if(!empty($first_name) &&
+        $last_name &&
+        $email &&
+        $party &&
+        $comments &&
+        $privacy &&
+        $phone) {
+
+        $headers = array(
+            'From' => 'noreply-mystudentswa.com',
+            'Reply-to:' => ' '.$email.''
+        );
+
+mail($to, $subject, $body, $headers);
+header('Location:thx.php');
+
+        }// close if not empty
+
+} // end if isset
+    
+
+} //end server request
+
+
 
 function myError($myFile, $myLine, $errorMsg)
 {
@@ -224,3 +356,4 @@ if(defined('DEBUG') && DEBUG)
     
     
 }
+?>

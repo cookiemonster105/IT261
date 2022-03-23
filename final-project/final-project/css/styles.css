@@ -114,6 +114,7 @@ li{
 }
 #coat_of_arms{
   width: 75px;
+  float: left;
 }
 
   footer{
@@ -211,7 +212,7 @@ li{
      
     } 
     
-  /* WIN form ----------------------------------*/
+  /* WIN Contact ----------------------------------*/
   .win_form{
     width: 400px;
     margin: 20px;
@@ -219,6 +220,10 @@ li{
     margin-right: auto;
     margin-top: 40px;
   }
+  #reset{
+    color:#f8323c;
+  }
+  
   label{
     disply: block;
     margin-bottom: 5px;
